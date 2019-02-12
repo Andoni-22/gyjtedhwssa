@@ -1,3 +1,4 @@
+package vehiculos;
 
 
 
@@ -283,6 +284,30 @@ public class Util
 	}while (error);
 	return fechaNac;
 	}
+    
+    
+    
+    public static LocalDate leerFecha(String mensaje) {
+	String fechaAux;
+	LocalDate fechaNac = LocalDate.now();
+	boolean error;
+	DateTimeFormatter formateador=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	System.out.println(mensaje);
+	do{
+	  error=false;
+	  
+	  fechaAux=Util.introducirCadena();
+	  try{		
+	   	fechaNac=LocalDate.parse(fechaAux, formateador);
+	  } catch(DateTimeParseException e){
+	   	error=true;
+		System.out.println("Error,Introduce fecha con formato dd/mm/aaaa: ");
+	  }
+	}while (error);
+	return fechaNac;
+	}
+    
+    
     
     
 	public static boolean esPrimo(int numero){
